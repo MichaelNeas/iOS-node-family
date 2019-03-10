@@ -1,0 +1,16 @@
+{
+  "name": "expressyoself",
+  "version": "1.0.0",
+  "description": "express server",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -19,17 +19,14 @@ class PersonInfoViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        DispatchQueue.global(qos: .background).async {
-            self.httpService.getThePeople(searchTerm: nil) { people, err in
-                DispatchQueue.main.async {
-                    if err != nil {
-                        print(err!)
-                    } else {
-                        self.people = people
-                        self.getImagesForPeople(amount: people.count)
-                        self.tableView.reloadData()
-                    }
+        self.httpService.getThePeople(searchTerm: nil) { people, err in
+            DispatchQueue.main.async {
+                if err != nil {
+                    print(err!)
+                } else {
+                    self.people = people
+                    self.getImagesForPeople(amount: people.count)
+                    self.tableView.reloadData()
                 }
             }
         }
