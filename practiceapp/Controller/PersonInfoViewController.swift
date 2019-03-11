@@ -62,6 +62,20 @@ extension PersonInfoViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return personCell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            people.remove(at: indexPath.row)
+            images.remove(at: indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+        }
+    }
 }
 
 extension PersonInfoViewController: UITextFieldDelegate {
