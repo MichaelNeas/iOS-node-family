@@ -1,5 +1,5 @@
 //
-//  PersonInfoViewController.swift
+//  PersonInfoTableViewController.swift
 //  practiceapp
 //
 //  Created by Michael Neas on 3/2/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonInfoViewController: UIViewController {
+class PersonInfoTableViewController: UIViewController {
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var tableView: UITableView!
         
@@ -58,7 +58,7 @@ class PersonInfoViewController: UIViewController {
     
 }
 
-extension PersonInfoViewController: UITableViewDataSource, UITableViewDelegate {
+extension PersonInfoTableViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredPeople.count
     }
@@ -79,12 +79,21 @@ extension PersonInfoViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            people.remove(at: indexPath.row)
-            filteredPeople.remove(at: indexPath.row)
-            images.remove(at: indexPath.row)
-            tableView.beginUpdates()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            tableView.endUpdates()
+            let person = people[indexPath.row]
+            self.httpService.deleteThe(id: person.id) { people, err in
+                DispatchQueue.main.async {
+                    if err != nil {
+                        print(err!)
+                    } else {
+                        self.people.remove(at: indexPath.row)
+                        self.filteredPeople.remove(at: indexPath.row)
+                        self.images.remove(at: indexPath.row)
+                        tableView.beginUpdates()
+                        tableView.deleteRows(at: [indexPath], with: .automatic)
+                        tableView.endUpdates()
+                    }
+                }
+            }
         }
     }
 }

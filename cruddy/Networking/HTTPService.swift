@@ -22,7 +22,11 @@ class HTTPService {
         // For a new user query, you cancel the data task if it already exists, because you want to reuse the data task object for this new query. 
         dataTask?.cancel()
         // To include the user’s search string in the query URL, you create a URLComponents object from the iTunes Search base URL, then set its query string: this ensures that characters in the search string are properly escaped. 
-        if var urlComponents = URLComponents(string: "http://localhost:3000") {
+        var urlString = "http://localhost:3000/v1/people"
+        if let searchName = searchTerm {
+            urlString += "/\(searchName)"
+        } 
+        if var urlComponents = URLComponents(string: urlString) {
             //urlComponents.query = "media=music&entity=song&term=\(searchTerm)"
             // The url property of urlComponents might be nil, so you optional-bind it to url.
             guard let url = urlComponents.url else { return }
@@ -48,6 +52,33 @@ class HTTPService {
                 }
             }
             // All tasks start in a suspended state by default; calling resume() starts the data task. 
+            dataTask?.resume()
+        }
+    }
+    
+    func deleteThe(id: UInt, completion: @escaping (([Person], String?) -> ()) ) {
+        dataTask?.cancel()
+        var urlString = "http://localhost:3000/v1/people/\(id)"
+        if var url = URL(string: urlString) {
+            var request = URLRequest(url: url)
+            request.httpMethod = "DELETE"
+            dataTask = defaultSession.dataTask(with: request) { data, response, error in
+                defer { self.dataTask = nil }
+                if let error = error {
+                    self.errorMessage = "DataTask error: " + error.localizedDescription + "\n"
+                    completion([], self.errorMessage)
+                } else if let data = data,
+                    let response = response as? HTTPURLResponse,
+                    response.statusCode == 200 {
+                    let personArray = try? JSONDecoder().decode([Person].self, from: data)
+                    if let people = personArray {
+                        completion(people, nil)
+                    } else { 
+                        self.errorMessage = "No data" 
+                        completion([], self.errorMessage)
+                    }
+                }
+            } 
             dataTask?.resume()
         }
     }

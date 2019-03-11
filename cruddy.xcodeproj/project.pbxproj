@@ -11,7 +11,7 @@
 		30B662AA2235970800ED4CDF /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B662A92235970800ED4CDF /* Person.swift */; };
 		30B662AC22359BC700ED4CDF /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B662AB22359BC700ED4CDF /* HTTPService.swift */; };
 		30EDA222222A473C00BEC975 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EDA221222A473C00BEC975 /* AppDelegate.swift */; };
-		30EDA224222A473C00BEC975 /* PersonInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EDA223222A473C00BEC975 /* PersonInfoViewController.swift */; };
+		30EDA224222A473C00BEC975 /* PersonInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EDA223222A473C00BEC975 /* PersonInfoTableViewController.swift */; };
 		30EDA227222A473C00BEC975 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30EDA225222A473C00BEC975 /* Main.storyboard */; };
 		30EDA229222A473F00BEC975 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30EDA228222A473F00BEC975 /* Assets.xcassets */; };
 		30EDA22C222A473F00BEC975 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30EDA22A222A473F00BEC975 /* LaunchScreen.storyboard */; };
@@ -21,9 +21,9 @@
 		30B662A72235965F00ED4CDF /* PersonInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoCell.swift; sourceTree = "<group>"; };
 		30B662A92235970800ED4CDF /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		30B662AB22359BC700ED4CDF /* HTTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
-		30EDA21E222A473C00BEC975 /* practiceapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = practiceapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30EDA21E222A473C00BEC975 /* cruddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cruddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30EDA221222A473C00BEC975 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		30EDA223222A473C00BEC975 /* PersonInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoViewController.swift; sourceTree = "<group>"; };
+		30EDA223222A473C00BEC975 /* PersonInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoTableViewController.swift; sourceTree = "<group>"; };
 		30EDA226222A473C00BEC975 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30EDA228222A473F00BEC975 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30EDA22B222A473F00BEC975 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 		30B662AF2235B88F00ED4CDF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				30EDA223222A473C00BEC975 /* PersonInfoViewController.swift */,
+				30EDA223222A473C00BEC975 /* PersonInfoTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -68,7 +68,7 @@
 		30EDA215222A473C00BEC975 = {
 			isa = PBXGroup;
 			children = (
-				30EDA220222A473C00BEC975 /* practiceapp */,
+				30EDA220222A473C00BEC975 /* cruddy */,
 				30EDA21F222A473C00BEC975 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,12 +76,12 @@
 		30EDA21F222A473C00BEC975 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				30EDA21E222A473C00BEC975 /* practiceapp.app */,
+				30EDA21E222A473C00BEC975 /* cruddy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		30EDA220222A473C00BEC975 /* practiceapp */ = {
+		30EDA220222A473C00BEC975 /* cruddy */ = {
 			isa = PBXGroup;
 			children = (
 				30B662AF2235B88F00ED4CDF /* Controller */,
@@ -94,7 +94,7 @@
 				30EDA22A222A473F00BEC975 /* LaunchScreen.storyboard */,
 				30EDA22D222A473F00BEC975 /* Info.plist */,
 			);
-			path = practiceapp;
+			path = cruddy;
 			sourceTree = "<group>";
 		};
 		30EDA233222A49A800BEC975 /* Networking */ = {
@@ -108,9 +108,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		30EDA21D222A473C00BEC975 /* practiceapp */ = {
+		30EDA21D222A473C00BEC975 /* cruddy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 30EDA230222A473F00BEC975 /* Build configuration list for PBXNativeTarget "practiceapp" */;
+			buildConfigurationList = 30EDA230222A473F00BEC975 /* Build configuration list for PBXNativeTarget "cruddy" */;
 			buildPhases = (
 				30EDA21A222A473C00BEC975 /* Sources */,
 				30EDA21B222A473C00BEC975 /* Frameworks */,
@@ -120,9 +120,9 @@
 			);
 			dependencies = (
 			);
-			name = practiceapp;
+			name = cruddy;
 			productName = practiceapp;
-			productReference = 30EDA21E222A473C00BEC975 /* practiceapp.app */;
+			productReference = 30EDA21E222A473C00BEC975 /* cruddy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -140,7 +140,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 30EDA219222A473C00BEC975 /* Build configuration list for PBXProject "practiceapp" */;
+			buildConfigurationList = 30EDA219222A473C00BEC975 /* Build configuration list for PBXProject "cruddy" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -153,7 +153,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				30EDA21D222A473C00BEC975 /* practiceapp */,
+				30EDA21D222A473C00BEC975 /* cruddy */,
 			);
 		};
 /* End PBXProject section */
@@ -179,7 +179,7 @@
 				30B662AC22359BC700ED4CDF /* HTTPService.swift in Sources */,
 				30B662AA2235970800ED4CDF /* Person.swift in Sources */,
 				30B662A82235965F00ED4CDF /* PersonInfoCell.swift in Sources */,
-				30EDA224222A473C00BEC975 /* PersonInfoViewController.swift in Sources */,
+				30EDA224222A473C00BEC975 /* PersonInfoTableViewController.swift in Sources */,
 				30EDA222222A473C00BEC975 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,12 +328,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3AGB2QANNL;
-				INFOPLIST_FILE = practiceapp/Info.plist;
+				INFOPLIST_FILE = cruddy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = farce.practiceapp;
+				PRODUCT_BUNDLE_IDENTIFIER = farce.cruddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -346,12 +346,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3AGB2QANNL;
-				INFOPLIST_FILE = practiceapp/Info.plist;
+				INFOPLIST_FILE = cruddy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = farce.practiceapp;
+				PRODUCT_BUNDLE_IDENTIFIER = farce.cruddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -361,7 +361,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		30EDA219222A473C00BEC975 /* Build configuration list for PBXProject "practiceapp" */ = {
+		30EDA219222A473C00BEC975 /* Build configuration list for PBXProject "cruddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				30EDA22E222A473F00BEC975 /* Debug */,
@@ -370,7 +370,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		30EDA230222A473F00BEC975 /* Build configuration list for PBXNativeTarget "practiceapp" */ = {
+		30EDA230222A473F00BEC975 /* Build configuration list for PBXNativeTarget "cruddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				30EDA231222A473F00BEC975 /* Debug */,

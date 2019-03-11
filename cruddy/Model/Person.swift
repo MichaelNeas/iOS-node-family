@@ -9,7 +9,8 @@
 import Foundation
 
 struct Person: Codable {
+    var id: UInt
     var name: String
-    var age: Int
+    var age: UInt
     var weight: Double
 }
