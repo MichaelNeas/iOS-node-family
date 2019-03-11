@@ -53,13 +53,18 @@ class HTTPService {
     }
     
     func getPlaceholder(size: Int, color: String, completion: @escaping (UIImage) -> ()) {
-        let url = URL(string: "https://via.placeholder.com/\(size)/\(color)")
+        guard let url = URL(string: "https://via.placeholder.com/\(size)/\(color)") else { return }
         
         DispatchQueue.global().async {
             //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            let data = try? Data(contentsOf: url!) 
-            DispatchQueue.main.async {
-                completion(UIImage(data: data!)!)
+            do {
+                let data = try Data(contentsOf: url) 
+                guard let image = UIImage(data: data) else { return }
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            } catch {
+                print(error.localizedDescription)
             }
         }
     }
